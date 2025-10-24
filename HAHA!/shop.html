@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopEasy - Products</title>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        background: #f4f6fb;
+    }
+    header {
+        background-color: #5563DE;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 40px;
+    }
+    .card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    .product-img {
+        height: 180px;
+        width: 100%;
+        background: #e3e6f3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        color: #888;
+    }
+    .details {
+        padding: 15px;
+    }
+    .details h3 {
+        margin: 10px 0;
+        color: #333;
+    }
+    .details p {
+        color: #666;
+        font-size: 14px;
+    }
+    .price {
+        color: #5563DE;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    .buy-btn {
+        background: #5563DE;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        margin-top: 10px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+    .buy-btn:hover {
+        background: #3b49b9;
+    }
+</style>
+</head>
+<body>
+<header>
+    Welcome to ShopEasy <span id="username"></span>!
+</header>
+
+<div class="grid">
+    <div class="card">
+        <div class="product-img">Product Image</div>
+        <div class="details">
+            <h3>Wireless Headphones</h3>
+            <p>High-quality sound with noise cancellation.</p>
+            <div class="price">$49.99</div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="product-img">Product Image</div>
+        <div class="details">
+            <h3>Smart Watch</h3>
+            <p>Track your steps, heart rate, and sleep smartly.</p>
+            <div class="price">$89.00</div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="product-img">Product Image</div>
+        <div class="details">
+            <h3>Bluetooth Speaker</h3>
+            <p>Portable and waterproof with deep bass.</p>
+            <div class="price">$39.99</div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="product-img">Product Image</div>
+        <div class="details">
+            <h3>IPhone 13 Pro</h3>
+            <p>What!!!...Its An IPhone</p>
+            <div class="price">₹0</div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+</div>
+
+<script>
+const user = JSON.parse(localStorage.getItem("currentUser"));
+if (user && user.name) {
+    document.getElementById("username").textContent = ", " + user.name;
+} else {
+    alert("Please register first!");
+    window.location.href = "registration.html";
+}
+</script>
+</body>
+</html>
