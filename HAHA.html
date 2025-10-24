@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopEasy Registration</title>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #74ABE2, #5563DE);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        width: 380px;
+        animation: fadeIn 1s ease;
+    }
+    @keyframes fadeIn { from {opacity: 0;} to { opacity: 1;} }
+    h2 { text-align: center; color: #333; }
+    input {
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        transition: 0.3s;
+    }
+    input:focus { border-color: #5563DE; outline: none; box-shadow: 0 0 10px rgba(85,99,222,0.4); }
+    button {
+        width: 100%;
+        padding: 12px;
+        background: #5563DE;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    button:hover { background: #3b49b9; }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Register for ShopEasy</h2>
+    <form id="registrationForm">
+        <input type="text" id="fullname" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+        <button type="submit">Register</button>
+    </form>
+</div>
+
+<script>
+document.getElementById("registrationForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const name = document.getElementById("fullname").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const pass = document.getElementById("password").value;
+    const confirm = document.getElementById("confirmPassword").value;
+
+    if (pass !== confirm) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    localStorage.setItem("currentUser", JSON.stringify({ name, email }));
+    alert("Welcome " + name + "! Redirecting to the shopping page...");
+    window.location.href = "shop.html"; // redirect after success
+});
+</script>
+</body>
+</html>
